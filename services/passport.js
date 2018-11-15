@@ -25,11 +25,16 @@ passport.deserializeUser((id, done) => {
   });
 });
 passport.use(
+  // new GoogleStrategy({
+  //   clientID: keys.googleClientID,
+  //   clientSecret: keys.googleClientSecret,
+  //   callbackURL: '/auth/google/callback',
+  //   proxy: true
+  // },
   new GoogleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
-    callbackURL: '/auth/google/callback',
-    proxy: true
+    callbackURL: 'https://arcane-eyrie-64377.herokuapp.com/auth/google/callback' 
   },
   (accessToken, refreshToken, profile, done) => {
     User.findOne({ googleId: profile.id })
