@@ -34,7 +34,8 @@ passport.use(
   new GoogleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
-    callbackURL: 'https://arcane-eyrie-64377.herokuapp.com/auth/google/callback' 
+    callbackURL: 'https://arcane-eyrie-64377.herokuapp.com/auth/google/callback',
+    proxy: true
   },
   (accessToken, refreshToken, profile, done) => {
     User.findOne({ googleId: profile.id })
