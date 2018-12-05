@@ -25,6 +25,12 @@ passport.deserializeUser((id, done) => {
   });
 });
 passport.use(
+  // new GoogleStrategy({
+  //   clientID: keys.googleClientID,
+  //   clientSecret: keys.googleClientSecret,
+  //   callbackURL: '/auth/google/callback',
+  //   proxy: true
+  // },
   new GoogleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
@@ -32,16 +38,21 @@ passport.use(
     callbackURL: '/auth/google/callback',
     proxy: true
   },
-  // refactor with async/await version
-  async (accessToken, refreshToken, profile, done) => {
-    // const existingUser = await findOne({ googleId: profile.id });  //it caused error!
-    const existingUser = await User.findOne({ googleId: profile.id });
-
+  (accessToken, refreshToken, profile, done) => {
+    User.findOne({ googleId: profile.id })
+    .then(existingUser => {
       if (existingUser) {
-        return done(null, existingUser);
+        //We already have a record with the given profile ID
+        done(null, existingUser);
+      } else {
+        //We don't have a user record with this ID, make a new record
+//create mongoose model instance,
+//representing a record inside of collection
+        new User({ googleId: profile.id })
+        .save()
+        .then(user => done(null, user));
       }
-        const user = await new User({ googleId: profile.id }).save();
-        done(null, user);
+    });
   }
  )
 );
