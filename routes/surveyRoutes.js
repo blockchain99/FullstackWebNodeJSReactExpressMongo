@@ -59,7 +59,8 @@ module.exports = app => {
   });
 
   //check 1) user login , 2)have enough credit on hand to survey in /middleware
-  app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
+  // app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
+  app.post('api/surveys', requireLogin, requireCredits, async (req, res) => {
     const { title, subject, body, recipients } = req.body;
 //to use model class, need to create instance of Survey
     const survey = new Survey({
