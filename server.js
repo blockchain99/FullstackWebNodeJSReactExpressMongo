@@ -7,11 +7,13 @@ const passport = require('passport');//tell passport to use cookie
 const bodyParser = require('body-parser');//exprss middleware
 const keys = require('./config/keys');
 require('./models/User');
+require('./models/Survey')
 require('./services/passport');
 // const authRoutes = require('./routes/authRoutes');
 // require('./routes/authRoutes'); //1
 
 // mongoose.connnect('mongodb://<dbuser>:<dbpassword>@ds161183.mlab.com:61183/emailydev');
+mongoose.Promise = global.Promise; //I just added on Dec 18 2018
 mongoose.connect(keys.mongoURI);
 
 const app = express();
@@ -30,6 +32,8 @@ app.use(passport.session());
 //return authRoutes function with app object.
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
+
 
 //production
 if (process.env.NODE_ENV === 'production') {

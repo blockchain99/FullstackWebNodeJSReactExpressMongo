@@ -14,11 +14,11 @@ module.exports = app => {
 //passing configuration object(specifically instruct stripe what to do)
       amount: 500,
       currency: 'usd',
-      description: '$5 for 5 credits',
+      description: '$10 for 10 credits',
       source: req.body.id //'tok_1DdLN9IdHGHddysAcbou1ZeU',
     });
     // console.log(charge);
-    req.user.credits += 5;
+    req.user.credits += 10;
     const user = await req.user.save();
 
     res.send(user);//send back user model to the client

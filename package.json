@@ -11,8 +11,9 @@
     "start": "set NODE_ENV=dev && node server.js",
     "server": "nodemon server.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \" npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev": "concurrently \" npm run server\" \"npm run client\" \"npm run webhook\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "webhook": "ssh -R yssub1:80:localhost:5000 serveo.net"
   },
   "author": "",
   "license": "ISC",
@@ -22,9 +23,12 @@
     "cookie-session": "^2.0.0-beta.3",
     "event-stream": "^4.0.1",
     "express": "^4.16.4",
+    "lodash": "^4.17.11",
     "mongoose": "^5.3.12",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "path-parser": "^4.2.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^6.17.0"
   },
   "devDependencies": {

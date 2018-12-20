@@ -1,0 +1,6 @@
+ssh -R yssub1:80:localhost:5000 serveo.net
+====
+server$ ssh -R yssub1:80:localhost:5000 serveo.net
+Hi there
+Forwarding HTTP traffic from https://yssub1.serveo.net
+Press g to start a GUI session and ctrl-c to quit.
