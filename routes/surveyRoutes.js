@@ -78,8 +78,8 @@ module.exports = app => {
       // recipients: recipients.split(',').map(email => { email })//confusing:func or shorten obj body?
       // recipients: recipients.split(',').map(email => ({ email })), //white space trim needed
       // recipients: recipients.split(',').map(email => ({ email: email.trim() })),
-      // recipients: recipients.split(',').map(email => ({ email: email.trim() })),
-      recipients: recipients.split(',').map(email => ({ email: email.trim(), responded: false })),
+      recipients: recipients.split(',').map(email => ({ email: email.trim() })),
+      // recipients: recipients.split(',').map(email => ({ email: email.trim(), responded: false })),
       _user: req.user.id, //current user id(id: mongoose auto generate)
       dateSent: Date.now()
     });
