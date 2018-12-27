@@ -42,9 +42,9 @@ module.exports = app => {
           {
              _id: surveyId,
              recipients: {
-             $elemMatch: { email: email }
+             // $elemMatch: { email: email }
              // $elemMatch: { email }
-             // $elemMatch: { email: email, responded: false }
+             $elemMatch: { email: email, responded: false }
              }
           },
          {
@@ -57,6 +57,12 @@ module.exports = app => {
       .value();
     res.send({});
   });
+
+// //Test purpost for connecting serveo or localtunnel
+//   app.post('/api/surveys/webhooks', (req, res) => {
+//     console.log(req.body);
+//     res.send({});
+//   });
 
   //check 1) user login , 2)have enough credit on hand to survey in /middleware
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {

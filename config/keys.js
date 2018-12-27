@@ -1,4 +1,4 @@
-//keys.js - figure out wha set of credentials to return
+//keys.js - figure out what set of credentials to return
 //NODE_ENV tells whether it is production or development
 if (process.env.NODE_ENV === 'production') {
   // we are in production -retun the prod set of keys
