@@ -1,12 +1,12 @@
 //dev.js - don't commit this!
 
 module.exports = {
-    googleClientID: '1076369128511-kr18kccs8sv9hdv0hkl7if0b1vlaa8kn.apps.googleusercontent.com',
-    googleClientSecret: 'WzZq6wSeEb9IAWA066IpFpNa',
+    googleClientID: '*',
+    googleClientSecret: '*',
     mongoURI: 'mongodb://smarts:smarts1@ds161183.mlab.com:61183/emailydev',
-    cookieKey: 'fifheksitkshjteishiehrhahreoldhrteki',  //my arbitrary
-    stripePublishableKey: 'pk_test_Vo1jk6pbFkiV85rcekFGI2X5',
-    stripeSecretKey: 'sk_test_do5OZoNVA6rlzVhxlA4E7BNk',
-    sendGridKey: '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',
+    cookieKey: '*',  //my arbitrary
+    stripePublishableKey: '*',
+    stripeSecretKey: '*',
+    sendGridKey: '*',
     redirectDomain: 'http://localhost:3000'
 };
