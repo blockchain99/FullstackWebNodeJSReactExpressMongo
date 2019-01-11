@@ -1,3 +1,5 @@
+//Data layer(Redux) control
+
 // import .. from with 'without ./' means it is from node_modules
 import materializeCSS from 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';

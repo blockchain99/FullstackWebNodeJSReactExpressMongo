@@ -1,5 +1,5 @@
 const express = require('express'); //common js module for server side
-//but for react es6, import express from 'express';
+//but for front-side react es6, import express from 'express';
 // const passportConfig = require('./services/passport');//this not return anything.
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');//access cookie

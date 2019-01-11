@@ -1,7 +1,8 @@
 //await mail.send(), async(req, res)
 const _ = require('lodash');
-// const Path = require('path-parser');
-const { Path } = require('path-parser');
+const Path = require('path-parser');
+// const Path = require('path-parser').default;
+// const { Path } = require('path-parser');
 const { URL } = require('url');  //default nodejs,no install
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
@@ -59,10 +60,10 @@ module.exports = app => {
   });
 
 // //Test purpost for connecting serveo or localtunnel
-//   app.post('/api/surveys/webhooks', (req, res) => {
-//     console.log(req.body);
-//     res.send({});
-//   });
+  // app.post('/api/surveys/webhooks', (req, res) => {
+  //   console.log(req.body);
+  //   res.send({});
+  // });
 
   //check 1) user login , 2)have enough credit on hand to survey in /middleware
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {

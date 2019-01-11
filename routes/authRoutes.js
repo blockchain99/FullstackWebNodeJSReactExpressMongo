@@ -21,7 +21,7 @@ module.exports = app => {//add app arg to the func.
   app.get('/api/logout', (req, res) => {
 //take cookie containg user id, kill the id in cookie.you're not the user anymore.
     req.logout();
-//send back acknoowlodment, prove there is no longer signed in.
+//send back acknowledgement, prove there is no longer signed in.
      // res.send(req.user);
 //send back to root
      res.redirect('/');
